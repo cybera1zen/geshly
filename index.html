@@ -1,110 +1,30 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Geshly - Find real problems worth solving</title>
-<meta name="description" content="Geshly is a searchable list of real problems and complaints people have, each with a source link. Find your next idea.">
+<meta name="description" content="Find ideas in the problems people actually have. Geshly is an upcoming search tool for problems, complaints and the sources behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root{--red:#ff2d43;--deep:#c4112a;--ink:#14090b;--mute:#6b5c5f;--soft:#fff5f6;--line:rgba(20,9,11,.08)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 400px at 85% -5%,rgba(255,45,67,.18),transparent 70%),radial-gradient(500px 400px at 0% 20%,rgba(255,120,135,.14),transparent 70%)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.04em;display:flex;align-items:center}
-.logo span{width:26px;height:26px;border-radius:9px;background:linear-gradient(135deg,#ff5a6b,var(--deep));margin-right:10px;box-shadow:0 6px 16px rgba(255,45,67,.4);position:relative}
-.logo span:after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
-.btn{display:inline-block;background:linear-gradient(135deg,#ff4258,var(--deep));color:#fff;padding:14px 26px;border-radius:99px;font-weight:600;border:0;font-size:16px;cursor:pointer;box-shadow:0 10px 24px -6px rgba(255,45,67,.55);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -6px rgba(255,45,67,.6)}
-.btn.ghost{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);color:var(--deep);border:1px solid rgba(255,45,67,.25);box-shadow:none;padding:10px 20px;font-size:15px}
-.hero{padding:70px 22px 70px;text-align:center}
-.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.8);border:1px solid rgba(255,45,67,.2);color:var(--deep);padding:7px 16px;border-radius:99px;font-size:13px;font-weight:600;letter-spacing:.02em}
-.pill:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(255,45,67,.18)}
-h1{font-size:clamp(40px,8vw,76px);line-height:1.03;margin:26px auto 22px;max-width:860px;letter-spacing:-.045em;font-weight:800}
-h1 em{font-style:normal;background:linear-gradient(120deg,#ff2d43,#c4112a 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{font-size:clamp(17px,2.2vw,20px);max-width:600px;margin:0 auto 34px;color:var(--mute)}
-form{display:flex;gap:6px;max-width:480px;margin:0 auto;padding:6px;background:#fff;border:1px solid var(--line);border-radius:99px;box-shadow:0 20px 50px -18px rgba(196,17,42,.35)}
-input{flex:1 1 auto;min-width:0;padding:12px 18px;border:0;background:transparent;border-radius:99px;font-size:16px;font-family:inherit}
-input:focus{outline:none}
-form .btn{padding:12px 22px;white-space:nowrap;font-size:15px}
-.note{font-size:14px;color:var(--mute);margin-top:16px}
-.demo{padding:30px 0 70px}
-.demo h2,.sec h2{font-size:clamp(28px,4.5vw,42px);letter-spacing:-.04em;margin-bottom:8px;font-weight:800;line-height:1.1}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:30px}
-.card{background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 18px 40px -24px rgba(196,17,42,.35);transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-5px);box-shadow:0 26px 50px -22px rgba(196,17,42,.45)}
-.card .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--deep);background:var(--soft);padding:4px 12px;border-radius:99px}
-.card h3{font-size:19px;margin:14px 0 8px;letter-spacing:-.02em;line-height:1.3}
-.card p{font-size:15px;color:var(--mute)}
-.meta{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
-.meta b{white-space:nowrap;color:#fff;background:var(--red);padding:3px 11px;border-radius:99px;font-weight:600}
-.sec{padding:60px 22px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:30px}
-.step{padding:24px;border-radius:22px;background:var(--soft);border:1px solid rgba(255,45,67,.1)}
-.step .n{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#ff4258,var(--deep));color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 8px 18px -6px rgba(255,45,67,.5)}
-.step h3{margin-bottom:4px;letter-spacing:-.02em}
-.step p{color:var(--mute);font-size:15px}
-.cta{padding:20px 22px 40px}
-.red{position:relative;overflow:hidden;background:linear-gradient(135deg,#ff3a50,#b50f26);color:#fff;padding:70px 24px;text-align:center;border-radius:36px;max-width:1080px;margin:0 auto}
-.red:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.12);top:-160px;right:-80px}
-.red:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);bottom:-130px;left:-50px}
-.red>*{position:relative;z-index:1}
-.red h2{font-size:clamp(28px,5vw,46px);letter-spacing:-.04em;margin-bottom:12px;line-height:1.1}
-.red p{max-width:520px;margin:0 auto 28px;opacity:.92}
-.red .btn{background:#fff;color:var(--deep);box-shadow:0 12px 28px -8px rgba(0,0,0,.3)}
-footer{padding:30px 0 40px;font-size:13px;color:var(--mute);text-align:center}
-@media(max-width:520px){.hero{padding:44px 20px}form{border-radius:24px;flex-direction:column;padding:8px}input{text-align:center}.red{border-radius:28px;padding:54px 20px}}
-.trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:26px;font-size:14px;color:var(--ink);font-weight:500}.trust li:before{content:"\2713";color:#fff;background:var(--deep);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;margin-right:8px}.card,.step{box-shadow:0 1px 2px rgba(20,9,11,.05),0 12px 28px -20px rgba(20,9,11,.25)}.card{background:#fff}
-</style><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></head><body>
-<div class="wrap"><nav><div class="logo"><span></span>Geshly</div><a class="btn ghost" href="#join">Join the waitlist</a></nav></div>
-
-<header class="hero wrap">
-<div class="pill">Coming soon</div>
-<h1>Stop guessing. Build what people <em>actually need.</em></h1>
-<p class="sub">Geshly is a searchable list of real problems and complaints people have. Every one comes with a link to where it was said.</p>
-<form id="join" onsubmit="event.preventDefault();this.innerHTML='<b style=&quot;color:#c4112a&quot;>Thanks! You are on the list.</b>'">
-<input type="email" placeholder="Your email" required aria-label="Your email">
-<button class="btn" type="submit">Get early access</button></form>
-<p class="note">Free to start. No spam.</p>
-<ul class="trust"><li>Every problem links to its source</li><li>Free to start, no spam</li><li>No names or contact details stored</li></ul>
-</header>
-
-<section class="demo"><div class="wrap">
-<h2>What you will find inside</h2>
-<p style="color:#6b5c5f">Examples of the kind of problems in Geshly.</p>
-<div class="cards">
-<div class="card"><div class="tag">Food</div><h3>No app shows which nearby shops have fresh local fruit today</h3><p>Buyers ask in groups every day. Sellers have no easy way to post stock.</p><div class="meta"><span>Source: forum post</span><b>248 have this</b></div></div>
-<div class="card"><div class="tag">Students</div><h3>Hard to find notes for one chapter without buying a full course</h3><p>Many students want a single topic explained, not a 40-hour video series.</p><div class="meta"><span>Source: app review</span><b>413 have this</b></div></div>
-<div class="card"><div class="tag">Small business</div><h3>Invoices in local languages are painful to make</h3><p>Shop owners copy by hand because billing tools only work well in English.</p><div class="meta"><span>Source: community thread</span><b>176 have this</b></div></div>
-</div></div></section>
-
-<section class="sec wrap">
-<h2>How it works</h2>
-<div class="steps">
-<div class="step"><div class="n">1</div><h3>Search</h3><p>Type a topic or pick a category.</p></div>
-<div class="step"><div class="n">2</div><h3>Read the proof</h3><p>Open a problem and see the real post or review it came from.</p></div>
-<div class="step"><div class="n">3</div><h3>Say "me too"</h3><p>Upvote problems you share. The most felt ones rise to the top.</p></div>
-<div class="step"><div class="n">4</div><h3>Build</h3><p>Save the best ones and start making a solution people want.</p></div>
-</div></section>
-
-<section class="sec wrap" style="padding-top:0">
-<h2>Our promises</h2>
-<div class="steps">
-<div class="step"><div class="n">&#10003;</div><h3>Proof on every problem</h3><p>Each entry links to the post or review it came from, so you can check it yourself.</p></div>
-<div class="step"><div class="n">&#10003;</div><h3>Public text only</h3><p>We collect only public text. No names, no contact details.</p></div>
-<div class="step"><div class="n">&#10003;</div><h3>Honest about examples</h3><p>The problems on this page are examples, and we say so. Real ones come with real links.</p></div>
-<div class="step"><div class="n">&#10003;</div><h3>Your email stays yours</h3><p>Only used to tell you when Geshly opens. No spam.</p></div>
-</div></section>
-
-<section class="sec wrap" style="padding-top:0">
-<h2>Who it is for</h2>
-<p style="color:#6b5c5f;max-width:640px;margin-top:8px;font-size:18px">Solo builders, indie hackers and small teams who have the skills but no idea. Also anyone who wants to share a problem they face and see if others feel it too.</p>
-</section>
-
-<section class="cta wrap"><div class="red">
-<h2>Be first to find your next idea</h2>
-<p>Join the waitlist and we will tell you the day Geshly opens.</p>
-<a class="btn" href="#join">Join the waitlist</a></div></section>
-<footer>&copy; 2026 Geshly. Example problems on this page are for illustration.</footer>
+:root{--red:#c83229;--red-dark:#9c241f;--ink:#29221f;--muted:#746c67;--paper:#fffdf9;--line:#e8e2da;--pink:#f7e9e3;--serif:'DM Serif Display',Georgia,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}button,a,input{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:4px}img{display:block;width:100%;height:auto}.container{max-width:1160px;margin:auto;padding:0 32px}.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:25px;letter-spacing:-1px}.brand-icon{width:31px;height:31px;border:2px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-family:var(--serif);font-size:23px;line-height:1;transform:rotate(-12deg)}.nav-links{display:flex;align-items:center;gap:30px;font-size:14px}.nav-links a:not(.button){color:var(--muted)}.nav-links a:hover{color:var(--red)}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--red);background:var(--red);border-radius:6px;padding:13px 22px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s,transform .2s}.button:hover{background:var(--red-dark);transform:translateY(-1px)}.button.small{padding:9px 15px;font-size:13px}.eyebrow{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--red);font-size:12px;font-weight:600;letter-spacing:1.7px;text-transform:uppercase}.dot{width:6px;height:6px;background:var(--red);border-radius:50%}.hero{text-align:center;padding:57px 0 0}.hero h1{font:400 clamp(42px,5.4vw,68px)/1.09 var(--serif);letter-spacing:-1.7px;max-width:1020px;margin:22px auto}.hero h1 em{font-weight:400;color:var(--red)}.hero .intro{max-width:585px;margin:0 auto 25px;font-size:17px;color:var(--muted);line-height:1.7}.hero-actions{display:flex;align-items:center;justify-content:center;gap:24px}.text-link{font-size:14px;border-bottom:1px solid #bcb2a9;padding:4px 0}.tiny{font-size:12px;color:var(--muted)}.hero .tiny{margin:12px auto 32px}.hero-art{position:relative;overflow:hidden;border-radius:10px;border:1px solid #e8dbd3;background:#f3e4dd;max-height:510px}.hero-art img{aspect-ratio:16/8;object-fit:cover;object-position:center}.art-label{position:absolute;bottom:17px;left:20px;font-size:11px;color:#66544d;background:rgba(255,253,249,.9);padding:4px 9px;border:1px solid #eee3dc;border-radius:4px}.principles{display:flex;justify-content:center;flex-wrap:wrap;gap:18px 38px;padding:27px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}.principles span:before{content:'✓';color:var(--red);margin-right:8px}.section{padding:98px 0}.section-header{max-width:720px;margin:0 auto 36px;text-align:center}.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin:0 0 14px}h2{font:400 clamp(32px,3.6vw,44px)/1.14 var(--serif);letter-spacing:-.7px;margin:0 0 18px}h3{font-weight:500;font-size:18px;line-height:1.45;margin:12px 0}.section-header p:not(.kicker),.copy>p:not(.kicker){color:var(--muted);margin:0;max-width:600px}.examples{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.example{padding:30px}.example+.example{border-left:1px solid var(--line)}.tag{display:inline-block;font-size:11px;color:var(--red);background:var(--pink);padding:3px 8px;border-radius:3px}.example h3{margin:20px 0 13px}.example p{font-size:14px;color:var(--muted);margin:0}.example-bottom{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}.sample{color:var(--red)}.caption{text-align:center;margin:15px 0 0;font-size:12px;color:var(--muted)}.feature{background:#f6f1ec;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.feature-art{border:1px solid #e9d9d0;border-radius:8px;overflow:hidden}.copy h2{max-width:450px}.copy .text-link{display:inline-block;margin-top:25px;color:var(--red);border-color:#d4a19a}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding-top:12px}.step{border-top:1px solid var(--line);padding-top:23px}.number{font-family:var(--serif);font-size:29px;color:var(--red)}.step p{font-size:14px;color:var(--muted);margin:0}.trust-panel{border:1px solid var(--line);border-radius:8px;background:#fff;padding:45px 45px 0}.trust-top{display:flex;align-items:center;justify-content:space-between;gap:30px}.trust-top h2{max-width:600px}.seal{width:80px;height:80px;flex-shrink:0;border:1px solid #d8b1a7;border-radius:50%;display:grid;place-items:center;color:var(--red);font-family:var(--serif);font-size:36px;background:#fff9f5}.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;border-top:1px solid var(--line)}.promise{padding:26px 22px 30px 0}.promise+.promise{padding-left:24px;border-left:1px solid var(--line)}.promise h3{font-size:16px}.promise p{color:var(--muted);font-size:13px;margin:0}.audience{padding:0 0 98px;display:grid;grid-template-columns:1fr 1fr;gap:80px}.audience p{color:var(--muted);margin:0}.join{background:var(--red);color:#fff;text-align:center;padding:78px 24px}.join h2{font-size:clamp(35px,4vw,52px)}.join>p{color:#f7d5cb;max-width:490px;margin:0 auto 26px}.signup{display:flex;max-width:480px;margin:0 auto;border:1px solid rgba(255,255,255,.7);background:#fff;border-radius:6px;padding:5px;gap:5px}.signup input{flex:1;width:0;border:0;border-radius:3px;padding:12px;color:var(--ink);background:#fff}.signup .button{white-space:nowrap}.join .signup-note{font-size:12px;max-width:480px;margin:13px auto 0;color:#ffe3dc}.form-status{font-size:14px;margin:16px auto 0;max-width:480px}footer{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:30px 0 35px;font-size:11px;color:var(--muted)}footer .brand{font-size:19px;color:var(--ink)}footer .brand-icon{width:25px;height:25px;font-size:18px}
+@media(max-width:800px){.container{padding:0 24px}.nav-links{gap:18px}.nav-links .secondary{display:none}.hero{padding-top:35px}.hero h1{font-size:52px}.section{padding:70px 0}.split{gap:35px}.process{grid-template-columns:1fr 1fr}.examples{grid-template-columns:1fr}.example+.example{border-left:0;border-top:1px solid var(--line)}.example{padding:25px}.example-bottom{margin-top:20px}.audience{gap:35px;padding-bottom:70px}.trust-panel{padding:30px 25px 0}.trust-grid{grid-template-columns:1fr}.promise+.promise{padding-left:0;border-left:0;border-top:1px solid var(--line)}.promise{padding:17px 0 23px}}
+@media(max-width:540px){.container{padding:0 20px}.nav{height:74px;gap:10px}.brand{font-size:23px}.nav-links>a:not(.button){display:none}.nav-links .button{padding:9px 11px;font-size:12px}.hero{padding-top:36px}.hero h1{font-size:43px;letter-spacing:-1px;margin:19px auto;line-height:1.12}.hero .intro{font-size:15px}.hero-actions{gap:19px}.hero-art img{aspect-ratio:4/3}.hero .tiny{margin-bottom:25px}.art-label{font-size:10px;left:10px;bottom:10px}.principles{justify-content:flex-start;gap:9px;padding:22px 0;flex-direction:column;font-size:12px}.section{padding:59px 0}.section-header{text-align:left;margin-bottom:25px}h2{font-size:34px}.split{grid-template-columns:1fr;gap:30px}.copy{order:-1}.process{gap:25px 22px}.step h3{font-size:17px}.step p{font-size:13px}.trust-panel{padding:25px 22px 0}.seal{display:none}.audience{grid-template-columns:1fr;gap:8px;padding-bottom:59px}.join{padding:58px 20px}.signup{flex-direction:column;padding:7px}.signup input{width:100%;padding:11px}.signup .button{width:100%}footer{align-items:flex-start;flex-direction:column;gap:13px;padding:26px 0}footer p{margin:0}.section-header p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+.section.container{padding-left:32px;padding-right:32px}@media(max-width:800px){.section.container{padding-left:24px;padding-right:24px}}@media(max-width:540px){.section.container{padding-left:20px;padding-right:20px}}
+</style>
+</head>
+<body>
+<div class="container"><nav class="nav" aria-label="Main"><a class="brand" href="#"><span class="brand-icon" aria-hidden="true">g</span>Geshly</a><div class="nav-links"><a href="#inside">Explore the idea</a><a class="secondary" href="#promises">Our approach</a><a class="button small" href="#join">Get early access <span aria-hidden="true">↗</span></a></div></nav></div>
+<main>
+<header class="hero container"><div class="eyebrow"><span class="dot"></span>An idea worth looking into</div><h1>Stop guessing.<br>Build what people <em>actually need.</em></h1><p class="intro">Geshly is a searchable list of real problems and complaints people have. Every one comes with a link to where it was said.</p><div class="hero-actions"><a class="button" href="#join">Get early access <span aria-hidden="true">↗</span></a><a class="text-link" href="#inside">Take a closer look ↓</a></div><p class="tiny">Coming soon. Made for curious builders.</p><div class="hero-art"><img src="assets/ideas.webp" alt="Red glass magnifying lens and a white lightbulb among folded paper cards"><span class="art-label">An idea, waiting to be found · AI illustration</span></div><div class="principles"><span>Source-first by design</span><span>No invented social proof</span><span>Clear about what's coming</span></div></header>
+<section class="section container" id="inside"><div class="section-header"><p class="kicker">From everyday friction to your next idea</p><h2>Good ideas start with a real problem.</h2><p>Less staring at a blank page. More understanding what people wish worked better. These examples show the kind of problems Geshly is being designed around.</p></div><div class="examples"><article class="example"><span class="tag">Food</span><h3>No app shows which nearby shops have fresh local fruit today</h3><p>Buyers ask in groups every day. Sellers have no easy way to post stock.</p><div class="example-bottom"><span>Potential source: forum post</span><span class="sample">Illustrative example</span></div></article><article class="example"><span class="tag">Students</span><h3>Hard to find notes for one chapter without buying a full course</h3><p>Many students want a single topic explained, not a 40-hour video series.</p><div class="example-bottom"><span>Potential source: app review</span><span class="sample">Illustrative example</span></div></article><article class="example"><span class="tag">Small business</span><h3>Invoices in local languages are painful to make</h3><p>Shop owners copy by hand because billing tools only work well in English.</p><div class="example-bottom"><span>Potential source: community thread</span><span class="sample">Illustrative example</span></div></article></div><p class="caption">Concept examples, not verified research. No real demand counts are claimed.</p></section>
+<section class="section feature"><div class="container split"><div class="feature-art"><img src="assets/proof.webp" alt="A red ribbon connecting white paper sheets, a conceptual illustration of traceable sources"></div><div class="copy"><p class="kicker">Less noise. More understanding.</p><h2>Don't take our word for it.<br>Read the proof.</h2><p>The goal is simple: connect every problem to the public post or review behind it. Read the original context, decide whether it matters, then build with a clearer starting point.</p><a class="text-link" href="#promises">Our approach to trust ↗</a><p class="tiny" style="margin-top:20px">Concept illustration generated with AI. Product is in development.</p></div></div></section>
+<section class="section container" id="how"><div class="section-header"><p class="kicker">The planned experience</p><h2>A little curiosity. A better starting point.</h2><p>From a topic you're interested in to a problem worth solving.</p></div><div class="process"><div class="step"><span class="number">01.</span><h3>Search</h3><p>Type a topic or pick a category.</p></div><div class="step"><span class="number">02.</span><h3>Read the proof</h3><p>See the original post or review behind a problem.</p></div><div class="step"><span class="number">03.</span><h3>Say "me too"</h3><p>Upvote problems you share so the most felt ones rise to the top.</p></div><div class="step"><span class="number">04.</span><h3>Build</h3><p>Save the best ones and start making a solution people want.</p></div></div></section>
+<section class="container" id="promises"><div class="trust-panel"><div class="trust-top"><div><p class="kicker">Our promises for the product</p><h2>Trust is built in the details.</h2></div><div class="seal" aria-hidden="true">✓</div></div><div class="trust-grid"><div class="promise"><h3>Proof, not just a claim.</h3><p>We're designing every entry to link to its original public source, so you can check the context yourself.</p></div><div class="promise"><h3>Public text. Not private lives.</h3><p>Our intended approach is public text only, without storing people's names or contact details.</p></div><div class="promise"><h3>Honest from the start.</h3><p>This is a concept landing page. Examples and AI illustrations are labelled. No fake testimonials, customer logos or demand counts.</p></div></div></div></section>
+<section class="section container"><div class="audience" style="padding-bottom:0"><div><p class="kicker">For people who like making things</p><h2>You have the skills.<br>Find the starting point.</h2></div><p>For solo builders, indie hackers and small teams looking for their next idea. And for anyone who wants to share a problem they face and see whether others feel it too.</p></div></section>
+<section class="join" id="join"><p class="kicker" style="color:#ffe1d8">Something useful is taking shape</p><h2>Be first to find your next idea.</h2><p>Geshly is coming soon. A place to turn everyday problems into things worth building.</p><form class="signup" id="signup"><input type="email" required placeholder="Your email address" aria-label="Your email address"><button class="button" type="submit">Get early access ↗</button></form><p class="signup-note">Preview only: email signup is not connected yet. Your email is not saved or sent.</p><p class="form-status" id="status" role="status" hidden></p></section>
+</main>
+<div class="container"><footer><a class="brand" href="#"><span class="brand-icon" aria-hidden="true">g</span>Geshly</a><p>© 2026 Geshly · In development · Examples and AI illustrations are for illustration.</p><a class="text-link" href="#promises" style="font-size:11px">Our approach ↗</a></footer></div>
+<script>document.getElementById('signup').addEventListener('submit',function(e){e.preventDefault();var s=document.getElementById('status');s.hidden=false;s.textContent='Signup is not open yet. This preview does not save your email.';});</script>
 </body></html>
